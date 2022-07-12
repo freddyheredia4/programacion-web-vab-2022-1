@@ -58,4 +58,13 @@ export class PersonComponent implements OnInit {
     )
   }
 
+  deleteById():void{
+    this.personService.deleteById(this.currentEntity.personId).subscribe(
+      () => {
+        console.log("Borrado");
+        //redireccionar ....
+      }
+    )
+  }
+
 }
