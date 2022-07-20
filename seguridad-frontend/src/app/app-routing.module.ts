@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PersonComponent } from './person/person.component';
 
 const routes: Routes = [
-  {path: 'person', component:PersonComponent},
-  {path: 'person/:id', component:PersonComponent}
+  {path: '', redirectTo: '/layout', pathMatch: 'full'},
+  {path: 'layout', loadChildren:() => import('./layout/layout.module').then(m => m.LayoutModule)},
+  {path: 'feature', loadChildren:() => import('./feature/feature.module').then(m => m.FeatureModule)}
 ];
 
 @NgModule({
