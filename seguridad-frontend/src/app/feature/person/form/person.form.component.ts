@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Person } from './person';
-import { PersonService } from './person.service';
+import { Person } from '../person';
+import { PersonService } from '../person.service';
 
 @Component({
-  selector: 'app-person',
-  templateUrl: './person.component.html'
+  selector: 'app-person-form',
+  templateUrl: './person.form.component.html'
 })
-export class PersonComponent implements OnInit {
+export class PersonFormComponent implements OnInit {
 
   constructor(
     private personService: PersonService,

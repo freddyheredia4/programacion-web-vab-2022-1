@@ -1,5 +1,7 @@
 package yavirac.seguridad.feature.person;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -47,6 +49,16 @@ public class PersonController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id){
         personService.deleteById(id);
+    }
+
+    @GetMapping("/findAll")
+    public List<Person> findAll(){
+        return personService.findAll();
+    }
+
+    @GetMapping("/findByName/{term}")
+    public List<Person> findByName(@PathVariable String term){
+        return personService.findByName(term);
     }
 
 }

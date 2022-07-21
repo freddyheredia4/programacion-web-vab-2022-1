@@ -1,5 +1,7 @@
 package yavirac.seguridad.feature.person;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,14 @@ public class PersonService {
 
     public void deleteById(long id){
         personRepository.deleteById(id);
+    }
+
+    public List<Person> findAll(){
+        return personRepository.findAll();
+    }
+
+    public List<Person> findByName(String term){
+        return personRepository.findByNameLikeIgnoreCase(term+"%");
     }
     
 }

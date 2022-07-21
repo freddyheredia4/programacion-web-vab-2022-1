@@ -2,19 +2,19 @@
   <app-header></app-header>
 </div>
 
-<div class="drawer drawer-mobile w-11/12 mx-auto h-[90%]">
-    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content flex flex-col items-center justify-center">
-      <div class="mx-2">
-        <router-outlet></router-outlet>
-      </div>
-        
-
-    </div> 
-    <div class="drawer-side">
-      <label for="my-drawer-2" class="drawer-overlay"></label> 
-      
-      <app-sidebar></app-sidebar>
-    
+<div class="drawer drawer-mobile w-11/12 mx-auto h-[90%] ">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content  flex flex-col rounded shadow-lg shadow-black">
+    <div class="">
+      <router-outlet></router-outlet>
     </div>
+
+
   </div>
+  <div class="drawer-side mr-2">
+    <label for="my-drawer-2" class="drawer-overlay"></label>
+
+    <app-sidebar></app-sidebar>
+
+  </div>
+</div>

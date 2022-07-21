@@ -1,6 +1,4 @@
 package yavirac.seguridad.feature.person;
-
-import java.sql.Time;
 import java.sql.Timestamp;
 
 import org.springframework.data.annotation.Id;
