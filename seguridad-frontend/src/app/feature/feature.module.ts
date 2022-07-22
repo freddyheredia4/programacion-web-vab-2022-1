@@ -6,13 +6,15 @@ import { PersonFormComponent } from './person/form/person.form.component';
 import { FormsModule } from '@angular/forms';
 import { PersonListComponent } from './person/list/person-list.component';
 import { PersonToolbarComponent } from './person/toolbar/person-toolbar.component';
+import { CityComboboxComponent } from './city/city-combobox.component';
 
 
 @NgModule({
   declarations: [
     PersonFormComponent,
     PersonListComponent,
-    PersonToolbarComponent
+    PersonToolbarComponent,
+    CityComboboxComponent
   ],
   imports: [
     CommonModule,

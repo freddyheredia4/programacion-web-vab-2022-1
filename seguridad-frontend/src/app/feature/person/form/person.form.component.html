@@ -1,4 +1,4 @@
-<app-person-toolbar [entityName]="currentEntity.name" ></app-person-toolbar>
+<app-person-toolbar [entityName]="currentEntity.name"></app-person-toolbar>
 
 <div class="grid justify-center mt-4">
   <div class="card shadow-2xl shadow-black">
@@ -14,7 +14,11 @@
         <label for="">Identificación</label>
         <input class="input input-primary" type="text" name="" id="" placeholder="Ejemplo: 17568888888"
           [(ngModel)]="currentEntity.dni">
-        <div class="form-control">
+
+        <label>Ciudad</label>
+        <app-city-combobox (cityIdEmitter)="currentEntity.cityId=$event" [cityId]="currentEntity.cityId">
+        </app-city-combobox>
+        <div class="forCiudadm-control">
           <label class="label cursor-pointer justify-start">
             <input type="checkbox" class="toggle toggle-primary" [(ngModel)]="currentEntity.enabled" />
             <span class="label-text ml-2">Activo</span>
@@ -22,6 +26,38 @@
         </div>
         <input class="input input-primary" type="date" name="" id="" [(ngModel)]="currentEntity.created">
       </div>
+
+      <table class="table table-compact">
+        <thead>
+          <tr>
+            <th>Permiso</th>
+            <th>Emiminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let authority of currentEntity.authorities">
+            <td>{{authority.name}}</td>
+            <td >
+              <a (click)="removeAuthority(authority.id)">
+                <svg class="w-4 h-4" fill="red"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+               xml:space="preserve">
+               <g>
+                 <path
+                   d="M490.667,96c0-17.673-14.327-32-32-32h-80.555C364.632,25.757,328.549,0.13,288,0h-64   c-40.549,0.13-76.632,25.757-90.112,64H53.333c-17.673,0-32,14.327-32,32l0,0c0,17.673,14.327,32,32,32H64v266.667   C64,459.468,116.532,512,181.333,512h149.333C395.468,512,448,459.468,448,394.667V128h10.667   C476.34,128,490.667,113.673,490.667,96z M384,394.667C384,424.122,360.122,448,330.667,448H181.333   C151.878,448,128,424.122,128,394.667V128h256V394.667z" />
+                 <path
+                   d="M202.667,384c17.673,0,32-14.327,32-32V224c0-17.673-14.327-32-32-32s-32,14.327-32,32v128   C170.667,369.673,184.994,384,202.667,384z" />
+                 <path
+                   d="M309.333,384c17.673,0,32-14.327,32-32V224c0-17.673-14.327-32-32-32s-32,14.327-32,32v128   C277.333,369.673,291.66,384,309.333,384z" />
+               </g>
+             </svg>
+              </a>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
       <div class="card-actions">
         <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
         <button class="btn btn-sm">Cancelar</button>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Authority } from '../../authority/authority';
+import { AuthorityService } from '../../authority/authority.service';
 import { Person } from '../person';
 import { PersonService } from '../person.service';
 
@@ -11,7 +13,9 @@ export class PersonFormComponent implements OnInit {
 
   constructor(
     private personService: PersonService,
-    private activatedRoute: ActivatedRoute
+    private authorityService: AuthorityService,
+    private activatedRoute: ActivatedRoute,
+    private router:Router
   ) { }
 
   currentEntity: Person = 
@@ -20,7 +24,9 @@ export class PersonFormComponent implements OnInit {
     name: "",
     dni: "",
     created: new Date(),
-    enabled: true
+    enabled: true,
+    cityId: 0,
+    authorities: []
   };
 
   ngOnInit(): void {
@@ -44,8 +50,11 @@ export class PersonFormComponent implements OnInit {
           name: "",
           dni: "",
           created: new Date(),
-          enabled: true
+          enabled: true,
+          cityId: 0,
+          authorities: []
         };
+        this.router.navigate(['/layout/person-list']);
       }
     )
   }
@@ -54,6 +63,13 @@ export class PersonFormComponent implements OnInit {
     this.personService.findById(id).subscribe(
       (response) => {
         this.currentEntity = response;
+        this.currentEntity.authorities.forEach(
+          (auth) => {
+            this.authorityService.findById(auth.id).subscribe(
+              (item) => auth.name = item.name
+            )
+          }
+        )
       }
     )
   }
@@ -65,6 +81,14 @@ export class PersonFormComponent implements OnInit {
         //redireccionar ....
       }
     )
+  }
+
+  removeAuthority(id: number):void {
+
+    this.currentEntity.authorities =
+    this.currentEntity.authorities.filter(
+      (item) => item.id != id 
+    );
   }
 
 }
