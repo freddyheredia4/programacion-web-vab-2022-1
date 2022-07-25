@@ -29,4 +29,8 @@ export class AuthorityService {
   public findAll(): Observable<Authority[]>{
     return this.http.get<Authority[]>(this.url+"/findAll", this.httpOptions);
   }
+
+  public findByName(term: string): Observable<Authority[]>{
+    return this.http.get<Authority[]>(this.url+"/findByName/"+term, this.httpOptions);
+  }
 }

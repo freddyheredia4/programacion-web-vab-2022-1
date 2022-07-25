@@ -55,6 +55,12 @@
               
             </td>
           </tr>
+          <tr>
+            <td>
+              <app-authority-search (authorityEmitter)="this.currentEntity.authorities.push($event)" ></app-authority-search>
+            </td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
 

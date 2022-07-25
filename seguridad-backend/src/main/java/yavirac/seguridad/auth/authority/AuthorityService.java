@@ -12,7 +12,7 @@ public class AuthorityService {
     AuthorityRepository authorityRepository;
 
     public List<Authority> findByName(String term){
-        return authorityRepository.findByNameLikeIgnoreCase(term);
+        return authorityRepository.findByNameLikeIgnoreCase(term+"%");
     }
 
     public Authority findById(long id){
