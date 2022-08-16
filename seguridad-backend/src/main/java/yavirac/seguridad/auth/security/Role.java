@@ -25,6 +25,5 @@ public class Role {
     @MappedCollection(idColumn = "role_id")
     private Set<RoleAuthority> authorities = new HashSet<>();
 
-    @MappedCollection(idColumn = "role_id")
-    private Set<RoleWindow> windows = new HashSet<>();
+
 }

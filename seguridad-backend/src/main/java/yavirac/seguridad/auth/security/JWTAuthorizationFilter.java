@@ -13,9 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-import yavirac.edu.ec.billingbackend.auth.domain.User;
-import yavirac.edu.ec.billingbackend.auth.service.UserService;
-
 public class JWTAuthorizationFilter  extends BasicAuthenticationFilter {
 
     private UserService userService;

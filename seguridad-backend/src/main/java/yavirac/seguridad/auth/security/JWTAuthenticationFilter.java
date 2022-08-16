@@ -3,7 +3,6 @@ package yavirac.seguridad.auth.security;
 
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import yavirac.edu.ec.billingbackend.auth.domain.User;
 
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;

@@ -12,9 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import yavirac.edu.ec.billingbackend.auth.domain.User;
-import yavirac.edu.ec.billingbackend.auth.domain.UserRole;
-import yavirac.edu.ec.billingbackend.auth.repository.UserRepository;
 
 @Service
 public class UserService implements UserDetailsService {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,7 @@ public class PersonController {
     //CRUD
 
     //Create
+    @PreAuthorize("hasAuthority('PERSONA_ESCRIBIR')")
     @PostMapping("/save")
     public Person save(@RequestBody Person person){
         return personService.save(person);
@@ -45,17 +47,20 @@ public class PersonController {
     }
 
     //Delete
+    @PreAuthorize("hasAuthority('PERSONA_BORRAR')")
     @DeleteMapping("/deleteById/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id){
         personService.deleteById(id);
     }
 
+    @PreAuthorize("hasAuthority('PERSONA_LEER')")
     @GetMapping("/findAll")
     public List<Person> findAll(){
         return personService.findAll();
     }
 
+    @PreAuthorize("hasAuthority('PERSONA_LEER')")
     @GetMapping("/findByName/{term}")
     public List<Person> findByName(@PathVariable String term){
         return personService.findByName(term);

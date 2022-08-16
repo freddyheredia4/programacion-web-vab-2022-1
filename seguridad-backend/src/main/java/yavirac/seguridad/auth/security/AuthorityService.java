@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import yavirac.edu.ec.billingbackend.auth.domain.Authority;
-import yavirac.edu.ec.billingbackend.auth.repository.AuthorityRepository;
 
 @Service
 public class AuthorityService {
